@@ -7,7 +7,9 @@ dbConnection();
 app.use(express.json());
 app.use(cors());
 app.use(UserRoutes);
-const PORT = 5000;
+
+const envPort = process.env.PORT as string;
+const PORT = envPort || 5000;
 
 app.listen(PORT, () => {
   console.log("The app is up and listening on port", PORT);
