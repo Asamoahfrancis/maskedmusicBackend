@@ -21,7 +21,8 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use(UserRoutes_1.UserRoutes);
-const PORT = 5000;
+const envPort = process.env.PORT;
+const PORT = envPort || 5000;
 app.listen(PORT, () => {
     console.log("The app is up and listening on port", PORT);
 });
