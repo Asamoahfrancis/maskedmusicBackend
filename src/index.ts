@@ -11,6 +11,10 @@ app.use(UserRoutes);
 const envPort = process.env.PORT as string;
 const PORT = envPort || 5000;
 
+app.get("/", (req, res) => {
+  res.send("Hello Music Back end");
+});
+
 app.listen(PORT, () => {
   console.log("The app is up and listening on port", PORT);
 });
