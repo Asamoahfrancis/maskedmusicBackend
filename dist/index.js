@@ -16,6 +16,8 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const UserRoutes_1 = require("./Routes/UserRoutes");
 const db_1 = require("./database/db");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const app = (0, express_1.default)();
 (0, db_1.dbConnection)();
 app.use(express_1.default.json());
@@ -23,6 +25,9 @@ app.use((0, cors_1.default)());
 app.use(UserRoutes_1.UserRoutes);
 const envPort = process.env.PORT;
 const PORT = envPort || 5000;
+app.get("/", (req, res) => {
+    res.send("Hello Music Back end");
+});
 app.listen(PORT, () => {
     console.log("The app is up and listening on port", PORT);
 });

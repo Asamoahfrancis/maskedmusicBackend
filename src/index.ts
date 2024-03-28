@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import { UserRoutes } from "./Routes/UserRoutes";
 import { dbConnection, dbTermination } from "./database/db";
+import dotenv from "dotenv";
+
+dotenv.config();
 const app = express();
 dbConnection();
 app.use(express.json());
